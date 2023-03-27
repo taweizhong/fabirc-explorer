@@ -1,0 +1,65 @@
+---
+name: test-network-org6
+version: 1.0.0
+client:
+  organization: Org6
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Org6:
+    mspid: Org6MSP
+    peers:
+    - peer0.org6.example.com
+    certificateAuthorities:
+    - ca.org6.example.com
+peers:
+  peer0.org6.example.com:
+    url: grpcs://localhost:9031
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICVzCCAf2gAwIBAgIQKBfixdJhxTlp3XgKTCA7HzAKBggqhkjOPQQDAjB2MQsw
+          CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+          YW5jaXNjbzEZMBcGA1UEChMQb3JnNi5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz
+          Y2Eub3JnNi5leGFtcGxlLmNvbTAeFw0yMzAzMDkwOTIxMDBaFw0zMzAzMDYwOTIx
+          MDBaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
+          Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmc2LmV4YW1wbGUuY29tMR8wHQYD
+          VQQDExZ0bHNjYS5vcmc2LmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+          AQcDQgAEVYEvzXvqY+U6XTLjGBhqYlhKKdkcLwGyFRRWUdK3txbSRthtSg1MTem4
+          +QSobY8HqRQZsofLTEvrU+p/RB4W1KNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1Ud
+          JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1Ud
+          DgQiBCAZCtbUDbCU9yAaPonlP3hUPpJnapS5qfs+ZC4ecr2KBTAKBggqhkjOPQQD
+          AgNIADBFAiANtM+nk6KqBDBr/VLFENcQ1F71rNEiaXj0JxyKKt8wrgIhAIlJpxXn
+          Pv8bDr19plRJFXUGQvFlbkL8eQvHbogsVZ9O
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer0.org6.example.com
+      hostnameOverride: peer0.org6.example.com
+certificateAuthorities:
+  ca.org6.example.com:
+    url: https://localhost:10006
+    caName: ca-org6
+    tlsCACerts:
+      pem: 
+        - |
+          -----BEGIN CERTIFICATE-----
+          MIICUTCCAfegAwIBAgIQadPhTHnl0d2HbZpNYDlDxDAKBggqhkjOPQQDAjBzMQsw
+          CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+          YW5jaXNjbzEZMBcGA1UEChMQb3JnNi5leGFtcGxlLmNvbTEcMBoGA1UEAxMTY2Eu
+          b3JnNi5leGFtcGxlLmNvbTAeFw0yMzAzMDkwOTIxMDBaFw0zMzAzMDYwOTIxMDBa
+          MHMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+          YW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmc2LmV4YW1wbGUuY29tMRwwGgYDVQQD
+          ExNjYS5vcmc2LmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+          5XrAg9H9PyVXKc7hHFFu/276DUsssNnB7Ra5EeECs88Ui+lx3nGqMvXAVDktxFFu
+          m0ZMx+ZMrepS3MQ13ZEDsqNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQG
+          CCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCCH
+          4yw0iuAoKAcNadqjto5lC1vsaSnssfvGyp/x5BfvnjAKBggqhkjOPQQDAgNIADBF
+          AiAqBNQ1N4XME/H9oPEnkx8qrMzbYQfgVp8DLZSGFSN0cgIhAJtEpX1i/morz4tP
+          bnSixNGfd3qJV9nMWW4ovZGBRosE
+          -----END CERTIFICATE-----
+          
+    httpOptions:
+      verify: false

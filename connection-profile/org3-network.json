@@ -1,0 +1,50 @@
+{
+  "name": "org3-network",
+  "version": "1.0.0",
+  "client": {
+    "tlsEnable": true,
+    "adminCredential": {
+      "id": "exploreradmin",
+      "password": "exploreradminpw"
+    },
+    "enableAuthentication": true,
+    "organization": "Org3MSP",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "channel2": {
+      "peers": {
+        "peer1.org3.example.com": {}
+      }
+    }
+  },
+  "organizations": {
+    "Org3MSP": {
+      "mspid": "Org3MSP",
+      "adminPrivateKey": {
+        "path": "/tmp/crypto/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/keystore/priv_sk"
+      },
+      "peers": [
+        "peer1.org3.example.com"
+      ],
+      "signedCert": {
+        "path": "/tmp/crypto/peerOrganizations/org3.example.com/users/User1@org3.example.com/msp/signcerts/User1@org3.example.com-cert.pem"
+      }
+    }
+  },
+  "peers": {
+    "peer1.org3.example.com": {
+      "tlsCACerts": {
+        "path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt"
+      },
+      "url": "grpcs://peer1.org3.example.com:9073"
+    }
+  }
+}

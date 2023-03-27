@@ -1,0 +1,50 @@
+{
+  "name": "org4-network",
+  "version": "1.0.0",
+  "client": {
+    "tlsEnable": true,
+    "adminCredential": {
+      "id": "exploreradmin",
+      "password": "exploreradminpw"
+    },
+    "enableAuthentication": true,
+    "organization": "Org4MSP",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "channel3": {
+      "peers": {
+        "peer1.org4.example.com": {}
+      }
+    }
+  },
+  "organizations": {
+    "Org4MSP": {
+      "mspid": "Org4MSP",
+      "adminPrivateKey": {
+        "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/User1@org4.example.com/msp/keystore/priv_sk"
+      },
+      "peers": [
+        "peer1.org4.example.com"
+      ],
+      "signedCert": {
+        "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/User1@org4.example.com/msp/signcerts/User1@org4.example.com-cert.pem"
+      }
+    }
+  },
+  "peers": {
+    "peer1.org4.example.com": {
+      "tlsCACerts": {
+        "path": "/tmp/crypto/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/tls/ca.crt"
+      },
+      "url": "grpcs://peer1.org4.example.com:8003"
+    }
+  }
+}

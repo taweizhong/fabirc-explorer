@@ -1,0 +1,50 @@
+{
+  "name": "org6-network",
+  "version": "1.0.0",
+  "client": {
+    "tlsEnable": true,
+    "adminCredential": {
+      "id": "exploreradmin",
+      "password": "exploreradminpw"
+    },
+    "enableAuthentication": true,
+    "organization": "Org6MSP",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "channel5": {
+      "peers": {
+        "peer1.org6.example.com": {}
+      }
+    }
+  },
+  "organizations": {
+    "Org6MSP": {
+      "mspid": "Org6MSP",
+      "adminPrivateKey": {
+        "path": "/tmp/crypto/peerOrganizations/org6.example.com/users/User1@org6.example.com/msp/keystore/priv_sk"
+      },
+      "peers": [
+        "peer1.org6.example.com"
+      ],
+      "signedCert": {
+        "path": "/tmp/crypto/peerOrganizations/org6.example.com/users/User1@org6.example.com/msp/signcerts/User1@org6.example.com-cert.pem"
+      }
+    }
+  },
+  "peers": {
+    "peer1.org6.example.com": {
+      "tlsCACerts": {
+        "path": "/tmp/crypto/peerOrganizations/org6.example.com/peers/peer1.org6.example.com/tls/ca.crt"
+      },
+      "url": "grpcs://peer1.org6.example.com:9033"
+    }
+  }
+}
